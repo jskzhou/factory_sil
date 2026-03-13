@@ -70,7 +70,7 @@ controller and plant running in separate threads. The project was then
 re-implemented using `asyncio`, which I believe better fits the problem while
 satisfying the challenge requirements.
 
-The system and controller run as independent `asyncio` tasks that communicate
+The plant and controller run as independent `asyncio` tasks that communicate
 via queues and events, and neither can see the other's internal state directly.
 Since coroutines only yield at `await` points, there are no race conditions
 by default and no need for locks or mutexes. This makes safety invariants
